@@ -14,4 +14,7 @@ app.listen(8001, function (){
   console.log('Listening on port 8001');
 })
 
-var port
+var PORT = process.env.PORT || 8001;
+app.listen(PORT, function () {
+  console.log('Listening on port ' + PORT);
+});
