@@ -31,9 +31,9 @@ app.get('/form', function(request, response) {
 });
 
 app.post('/submit', function (request, response) {
-
-  console.log(request.body);
-  console.log(request.body.act)
+  var req = request.body;
+  // console.log('Request Body: '+req);
+  // console.log('User input: '+req.act)
   var x = request.body.act.split(' ').join('+');
   var uri1 = 'https://api.themoviedb.org/3/search/person?api_key=51e38f27928e488db41b958879abd765&query='
   var fulluri = uri1.concat(x);
@@ -46,10 +46,18 @@ app.post('/submit', function (request, response) {
   rp(options)
   .then(function(result){
     // console.log(result)
-    console.log(result.name)
+    console.log('API returns: '+result.total_results)
+    // total_results
     return result;
-  });
-  .then(function(result){
-    response.render('form.hbs', {title:'form'})
   })
-});
+  .then(function(result){
+    console.log('Search results receives: '+result.total_results)
+    console.log('ID: '+result.results[0].id)
+    response.render('search.hbs',
+      { result: result,
+        name: result.results[0].name,
+        id: result.results[0].id,
+        popularity: result.results[0].popularity }
+      )
+    });
+  });
