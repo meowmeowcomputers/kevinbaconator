@@ -3,8 +3,28 @@
 
 #header {
   color: @light-blue;
+  .navigation {
+    font-size: 12px;
+    &:hover {
+      color: red;
+    }
+  }
+  .logo {
+    width: 300px;
+    @media (max-width: 768px) {
+      width: 250px;
+    }
+  }
 }
 
-.bordered {
-  border: 1px solid @nice-blue;
+#button {
+  color: lighten(@light-blue, 30%);
+}
+
+.list {
+  color: darken(@light-blue, 10%);
+}
+
+body {
+  background-color: darken(@light-blue, 30%);
 }

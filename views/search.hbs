@@ -1,18 +1,20 @@
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="/static/main.css">
+
 </head>
 <body>
-<h1>The Kevin Baconator</h1>
+<h1 id='header'>The Kevin Baconator</h1>
 <form action="/submit" method="POST">
-  <label>Find an actor:</label>
+  <label class="list">Find an actor:</label>
   <input type="text" name="act">
   <br><br>
-  <button type="submit">Search for Actor</button>
-  <ul>
+  <button type="submit" id="button">Search for Actor</button>
+  <ul><div class="list">
     <li>Total results: {{result.total_results}}</li>
     <li>First result: {{name}}</li>
     <li>First result ID: {{id}}</li>
     <li>First result popularity: {{popularity}}</li>
-  </ul>
+  </ul></div>
 </body>
 </html>
