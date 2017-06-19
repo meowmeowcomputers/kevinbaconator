@@ -13,6 +13,8 @@ var axios = require('axios');
 
 app.use(body_parser.urlencoded({extended: false}));
 
+app.use('/static', express.static('static'));
+
 app.set('view engine', 'hbs');
 
 app.get('/', function (request, response) {
